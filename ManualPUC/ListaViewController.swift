@@ -96,6 +96,7 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
         
         var image: UIImage!
         
+        
         if indexPath.section == 0 {
             
             (cell as! ListaCell).label.text = "Banheiros"

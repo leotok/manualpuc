@@ -113,11 +113,11 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         if (indexPath.row == 0)
         {
-            cell?.textLabel?.text = " O Manual"
+            cell?.textLabel?.text = " #oManual"
         }
         else if (indexPath.row == 1)
         {
-            cell?.textLabel?.text = " Universidade"
+            cell?.textLabel?.text = " #aFacul"
         }
         else if (indexPath.row == 2)
         {
@@ -129,11 +129,11 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         else if (indexPath.row == 4)
         {
-            cell?.textLabel?.text = " Comes e bebes"
+            cell?.textLabel?.text = " #toComFome"
         }
         else if (indexPath.row == 5)
         {
-            cell?.textLabel?.text = " Esporte"
+            cell?.textLabel?.text = " #PUCFitness"
         }
 
         

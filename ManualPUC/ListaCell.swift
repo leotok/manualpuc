@@ -29,7 +29,7 @@ class ListaCell: UITableViewCell {
         self.bringSubviewToFront(self.textLabel!)
         
         label = UILabel()
-        label.frame.size = CGSizeMake( cellWidth / 2  , self.frame.width / 6)
+        label.frame.size = CGSizeMake( cellWidth   , self.frame.width / 6)
         label.center = CGPointMake( cellWidth / 2, self.frame.height * 2.5)
         label.textAlignment = .Center
         label.numberOfLines = -1

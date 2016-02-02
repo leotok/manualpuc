@@ -127,8 +127,8 @@ class ManualViewController: UIViewController,SWRevealViewControllerDelegate {
         // Button
         
         let button1 = UIButton()
-        button1.frame.size = CGSizeMake( self.view.frame.height / 24 , self.view.frame.height / 24  )
-        button1.center = CGPointMake( self.view.frame.width - 25 , self.view.frame.height - 85 )
+        button1.frame.size = CGSizeMake( self.view.frame.height / 20 , self.view.frame.height / 20  )
+        button1.center = CGPointMake( self.view.center.x, self.view.frame.height - 85 )
         button1.setImage(UIImage(named: "Info"), forState: UIControlState.Normal)
         button1.addTarget(self, action: Selector("infoAction"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button1)

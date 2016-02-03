@@ -36,8 +36,8 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
     var frioImageArray = ["frio","frio","frio","frio","frio","frio"]
     var frioTitleArray = ["RDC","Labgrad","hsuha","fsudjf","fisjd","kmcvn"]
     
-    var vilaImageArray = ["vila","vila","vila","vila","vila","vila"]
-    var vilaTitleArray = ["DAAF","CAFIL","CACOS","CAPSI","CADEG","CAPETA"]
+    var vilaImageArray = ["vilaDaaf","vilaCafil","vilaCraa","vilaDaft","vilaCapsi","vilaCag","vilaEnfermaria"]
+    var vilaTitleArray = ["DAAF","CAFIL","CRAA","DAFT","CAPSI", "CAG", "Enfermaria"]
     
     var nuncaViImageArray = ["escondido","escondido","escondido","escondido","escondido","escondido"]
     var nuncaViTitleArray = ["Tenda design","Tenda Moderna design","Predio arquitetura","TECGraf","Salas da Pastoral","Jardim Pastoral"]
@@ -47,7 +47,7 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        
+         
         
         
         let background = UIImageView(image: UIImage(named: "paperBackground"))
@@ -146,6 +146,9 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if subListaType == SubListaTypeEnum.Vila{
+            return vilaImageArray.count
+        }
         return 6
     }
     

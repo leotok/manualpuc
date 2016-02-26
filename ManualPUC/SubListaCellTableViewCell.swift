@@ -13,7 +13,7 @@ class SubListaCellTableViewCell: UITableViewCell {
     var label: UILabel!
     var infoText: UILabel!
     var imageCell: UIImageView!
-    private let cellHeight: CGFloat = 250
+    private let cellHeight: CGFloat = 220//250
     private let cellWidth: CGFloat = UIScreen.mainScreen().bounds.width
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -21,8 +21,6 @@ class SubListaCellTableViewCell: UITableViewCell {
         
         imageCell = UIImageView()
         imageCell.frame = CGRectMake(0, 0, cellWidth, 180)
-//        imageCell.layer.borderWidth = 1
-//        imageCell.layer.borderColor = UIColor.whiteColor().CGColor
         imageCell.layer.shadowOffset = CGSizeMake(0, 1)
         imageCell.layer.shadowColor = UIColor.darkGrayColor().CGColor
         imageCell.layer.shadowOpacity = 1
@@ -53,7 +51,7 @@ class SubListaCellTableViewCell: UITableViewCell {
         infoText.numberOfLines = -1
         infoText.textColor = UIColor.darkGrayColor()
         infoText.font = UIFont(name: "Avenir-Light", size: cellWidth / 34.5)
-        self.addSubview(infoText)
+//        self.addSubview(infoText)
         
         self.selectionStyle = UITableViewCellSelectionStyle.None
         

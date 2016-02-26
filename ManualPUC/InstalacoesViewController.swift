@@ -76,7 +76,7 @@ class InstalacoesViewController: UIViewController {
         let label31 = UILabel()
         label31.frame.size = CGSizeMake( self.view.frame.width - 20 , self.view.frame.height / 2.876 )
         label31.center = CGPointMake( self.view.frame.width / 2 , self.view.frame.height / 2 )
-        label31.text = "Apesar de parecer um mito, existe um orelhão em frente ao Ginásio da PUC. Para os destraídos que esquecem o celular em casa ou então acabaram com a bateria logo na primeira aula do dia.\n#nãoValeLigarÀCobrar #9090"
+        label31.text = "Apesar de parecer um mito, existem orelhões no campus. Um deles fica em frente ao Ginásio da PUC. Para os destraídos que esquecem o celular em casa ou então acabaram com a bateria logo na primeira aula do dia.\n#nãoValeLigarÀCobrar #9090"
         label31.textAlignment = NSTextAlignment.Justified
         label31.font = UIFont(name: "palitoon", size: view.frame.height / 40)
         label31.numberOfLines = -1

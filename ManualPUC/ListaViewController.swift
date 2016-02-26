@@ -57,7 +57,6 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
         self.navigationController?.navigationBar.backgroundColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
         self.navigationController?.navigationBar.barTintColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
         self.navigationController?.navigationBar.translucent = false
-//        self.navigationController?.navigationBar.topItem?.titleView = tripify
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
       
@@ -102,25 +101,29 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
             (cell as! ListaCell).label.text = "Banheiros"
             image = UIImage(named: "banheiro")
         }
+//        else if indexPath.section == 1{
+//            (cell as! ListaCell).label.text = "Lugares para dormir"
+//            image = UIImage(named: "soneca")
+//        }
         else if indexPath.section == 1{
-            (cell as! ListaCell).label.text = "Lugares para dormir"
-            image = UIImage(named: "soneca")
+            (cell as! ListaCell).label.text = "Lugares para estudar"
+            image = UIImage(named: "estudar2")
         }
         else if indexPath.section == 2{
-            (cell as! ListaCell).label.text = "Lugares para estudar"
-            image = UIImage(named: "sala")
+            (cell as! ListaCell).label.text = "Lugares com tomada"
+            image = UIImage(named: "tomadaIag")
         }
         else if indexPath.section == 3{
-            (cell as! ListaCell).label.text = "Lugares mais frios"
-            image = UIImage(named: "frio")
-        }
-        else if indexPath.section == 4{
             (cell as! ListaCell).label.text = "Vila dos Diretórios"
             image = UIImage(named: "vila")
         }
-        else if indexPath.section == 5{
+        else if indexPath.section == 4{
             (cell as! ListaCell).label.text = "Estudo na PUC, mas nunca vi!"
             image = UIImage(named: "escondido")
+        }
+        else if indexPath.section == 5{
+            (cell as! ListaCell).label.text = "Xerox"
+            image = UIImage(named: "vilaXeroxEng")
         }
         else {
             image = nil
@@ -144,20 +147,23 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
         if indexPath.section == 0 {
             subLista.subListaType = .Banheiro
         }
+//        else if indexPath.section == 1 {
+//            subLista.subListaType = .Dormir
+//        }
         else if indexPath.section == 1 {
-            subLista.subListaType = .Dormir
-        }
-        else if indexPath.section == 2 {
             subLista.subListaType = .Estudo
         }
-        else if indexPath.section == 3 {
-            subLista.subListaType = .Frio
+        else if indexPath.section == 2 {
+            subLista.subListaType = .Tomada
         }
-        else if indexPath.section == 4 {
+        else if indexPath.section == 3 {
             subLista.subListaType = .Vila
         }
-        else if indexPath.section == 5 {
+        else if indexPath.section == 4 {
             subLista.subListaType = .NuncaVi
+        }
+        else if indexPath.section == 5 {
+            subLista.subListaType = .Xerox
         }
         
         navigationController?.pushViewController(subLista, animated: true)

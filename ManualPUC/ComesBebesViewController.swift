@@ -74,6 +74,16 @@ class ComesBebesViewController: UIViewController,SWRevealViewControllerDelegate 
     
     func addLayout() {
         
+        
+        let atualizacao = UILabel()
+        atualizacao.frame.size = CGSizeMake( self.view.frame.width / 2 , self.view.frame.height / 10 )
+        atualizacao.center = CGPointMake( self.view.frame.width / 1.9 , self.view.frame.height / 19 )
+        atualizacao.text = "(atualizado em 2015.2)"
+        atualizacao.textAlignment = NSTextAlignment.Justified
+        atualizacao.font = UIFont(name: "palitoon", size: view.frame.height / 35.5)
+        atualizacao.numberOfLines = -1
+        self.view.addSubview(atualizacao)
+        
         // Açai
         
         let label1 = UILabel()
@@ -116,7 +126,7 @@ class ComesBebesViewController: UIViewController,SWRevealViewControllerDelegate 
         
         let label3 = UILabel()
         label3.frame.size = CGSizeMake( self.view.frame.width / 2.246 , self.view.frame.height / 10 )
-        label3.center = CGPointMake( self.view.frame.width / 3.896 , self.view.frame.height / 3.6 )
+        label3.center = CGPointMake( self.view.frame.width / 3.896 , self.view.frame.height / 2.8 )
         label3.text = "Café:"
         label3.textAlignment = NSTextAlignment.Justified
         label3.font = UIFont(name: "palitoon", size: view.frame.height / 16.675)
@@ -125,7 +135,7 @@ class ComesBebesViewController: UIViewController,SWRevealViewControllerDelegate 
         
         let label31 = UILabel()
         label31.frame.size = CGSizeMake( self.view.frame.width / 2.184 , self.view.frame.height / 2.876 )
-        label31.center = CGPointMake( self.view.frame.width / 3.5 , self.view.frame.height / 2.6 )
+        label31.center = CGPointMake( self.view.frame.width / 3.5 , self.view.frame.height / 2.1 )
         label31.text = "Café expresso\n- Eruditos ………………….. 3,30\n- Bar das freiras …... 4,00\n- Fastway ………………..... 4,00\n- Banca fora …………..... 2,50\n- Bandeijão(Nespresso)..3,50"
         label31.textAlignment = NSTextAlignment.Justified
         label31.font = UIFont(name: "palitoon", size: view.frame.height / 48)
@@ -141,46 +151,26 @@ class ComesBebesViewController: UIViewController,SWRevealViewControllerDelegate 
         label32.font = UIFont(name: "palitoon", size: view.frame.height / 48)
         label32.numberOfLines = -1
         self.view.addSubview(label32)
-
+        
         // Lanchonetes
         
-        let button1 = UIButton()
-        button1.frame.size = CGSizeMake( self.view.frame.width , self.view.frame.height / 7 )
-        button1.center = CGPointMake( self.view.frame.width / 2.000 , self.view.frame.height / 1.7 )
-        button1.addTarget(self, action: Selector("lancheAction"), forControlEvents: UIControlEvents.TouchUpInside)
-        button1.setImage(UIImage(named: "lanche"), forState: .Normal)
-        button1.clipsToBounds = true
-        self.view.addSubview(button1)
-        
-        let labelLanche = UILabel()
-        labelLanche.frame.size = CGSizeMake( self.view.frame.width , self.view.frame.height / 10 )
-        labelLanche.center = button1.center
-        labelLanche.text = "Lanchonetes"
-        labelLanche.textAlignment = NSTextAlignment.Center
-        labelLanche.font = UIFont(name: "HelveticaNeue-Thin", size: view.frame.height / 16.675)
-        labelLanche.numberOfLines = -1
-        labelLanche.textColor = UIColor.whiteColor()
-        self.view.addSubview(labelLanche)
-
-        // Restaurantes
-        
-        let button2 = UIButton()
-        button2.frame.size = CGSizeMake( self.view.frame.width , self.view.frame.height / 7 )
-        button2.center = CGPointMake( self.view.frame.width / 2.000 , self.view.frame.height / 1.3 )
-        button2.addTarget(self, action: Selector("restauranteAction"), forControlEvents: UIControlEvents.TouchUpInside)
-        button2.setImage(UIImage(named: "restaurantePUC"), forState: .Normal)
-        button2.clipsToBounds = true
-        self.view.addSubview(button2)
-        
-        let labelRestaurante = UILabel()
-        labelRestaurante.frame.size = CGSizeMake( self.view.frame.width , self.view.frame.height / 10 )
-        labelRestaurante.center = button2.center
-        labelRestaurante.text = "Restaurantes"
-        labelRestaurante.textAlignment = NSTextAlignment.Center
-        labelRestaurante.font = UIFont(name: "HelveticaNeue-Thin", size: view.frame.height / 16.675)
-        labelRestaurante.numberOfLines = -1
-        labelRestaurante.textColor = UIColor.whiteColor()
-        self.view.addSubview(labelRestaurante)
+        //        let button1 = UIButton()
+        //        button1.frame.size = CGSizeMake( self.view.frame.width , self.view.frame.height / 4 )
+        //        button1.center = CGPointMake( self.view.frame.width / 2.000 , self.view.frame.height / 1.5 )
+        //        button1.addTarget(self, action: Selector("lancheAction"), forControlEvents: UIControlEvents.TouchUpInside)
+        //        button1.setImage(UIImage(named: "lanche"), forState: .Normal)
+        //        button1.clipsToBounds = true
+        //        self.view.addSubview(button1)
+        //
+        //        let labelLanche = UILabel()
+        //        labelLanche.frame.size = CGSizeMake( self.view.frame.width , self.view.frame.height / 10 )
+        //        labelLanche.center = button1.center
+        //        labelLanche.text = "Melhores laricas"
+        //        labelLanche.textAlignment = NSTextAlignment.Center
+        //        labelLanche.font = UIFont(name: "HelveticaNeue-Thin", size: view.frame.height / 16.675)
+        //        labelLanche.numberOfLines = -1
+        //        labelLanche.textColor = UIColor.whiteColor()
+        //        self.view.addSubview(labelLanche)
     }
     
     func lancheAction() {

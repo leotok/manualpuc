@@ -12,10 +12,11 @@ enum SubListaTypeEnum: String {
     
     case Banheiro = "Banheiros"
     case Estudo = "Estudo"
-    case Dormir = "Dormir"
-    case Frio = "Frio"
+//    case Dormir = "Dormir"
+    case Tomada = "Tomada"
     case Vila = "Vila"
     case NuncaVi = "Nunca Vi"
+    case Xerox = "Xerox"
     
 }
 
@@ -24,23 +25,26 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
     var subTableView: UITableView!
     var subListaType: SubListaTypeEnum!
     
-    var banheirosImageArray = ["banheiro","banheiro","banheiro","banheiro","banheiro","banheiro"]
-    var banheirosTitleArray = ["L310","RDC","8+ andar","Departamento X","Labgrad","Fxxx"]
+    var banheirosImageArray = ["banheiro1","banheiro2"]
+    var banheirosTitleArray = ["Banheiro do IAG","Banheiro da Pastoral"]
     
-    var estudoImageArray = ["sala","sala","sala","sala","sala","sala"]
-    var estudoTitleArray = ["Bibliotecas","Mesa bosque","Predio Arquitetura","Mesas Leme","Pastoral","RDC"]
+    var estudoImageArray = ["estudar1","estudar2","estudar3","estudar4","estudar5","estudar6"]
+    var estudoTitleArray = ["Pastoral","Mesas IAG","Mais mesas IAG","Mesas perto do Kennedy","Mesas RDC","Mesas perto do Dep. de Adm"]
     
-    var dormirImageArray = ["soneca","soneca","soneca","soneca","soneca","soneca"]
-    var dormirTitleArray = ["Anfiteatro","Bibliotecas","Sofas da vila","Bosque","algum lugar","outro lugar"]
+//    var dormirImageArray = ["soneca","soneca","soneca","soneca","soneca","soneca"]
+//    var dormirTitleArray = ["Anfiteatro","Bibliotecas","Sofas da vila","Bosque","algum lugar","outro lugar"]
     
-    var frioImageArray = ["frio","frio","frio","frio","frio","frio"]
-    var frioTitleArray = ["RDC","Labgrad","hsuha","fsudjf","fisjd","kmcvn"]
+    var tomadaImageArray = ["tomadaBiblio","tomadaBosque","tomadaIag","tomadaLeme"]
+    var tomadaitleArray = ["Biblioteca","Anfiteatro","Arquibancada do IAG","Arquibancada do Leme"]
     
     var vilaImageArray = ["vilaDaaf","vilaCafil","vilaCraa","vilaDaft","vilaCapsi","vilaCag","vilaEnfermaria"]
     var vilaTitleArray = ["DAAF","CAFIL","CRAA","DAFT","CAPSI", "CAG", "Enfermaria"]
     
-    var nuncaViImageArray = ["escondido","escondido","escondido","escondido","escondido","escondido"]
-    var nuncaViTitleArray = ["Tenda design","Tenda Moderna design","Predio arquitetura","TECGraf","Salas da Pastoral","Jardim Pastoral"]
+    var nuncaViImageArray = ["escondido","nuncavi1","nuncavi2","nuncavi3"]
+    var nuncaViTitleArray = ["Solar Grandjean de Montigny","Sala de música da Pastoral","Tenda de desgin","Estatua Bizarra"]
+    
+    var xeroxImageArray = ["vilaXeroxEng","vilaXerox","xeroxFunc","xeroxLeme"]
+    var xeroxTitleArray = ["Xerox DAAF","Xerox APG","Xerox Funcionários","Xerox Leme"]
     
     override func viewDidLoad() {
         
@@ -102,17 +106,17 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
             image = UIImage(named: banheirosImageArray[indexPath.section])
             (cell as! SubListaCellTableViewCell).label.text = banheirosTitleArray[indexPath.section]
         }
-        else if subListaType == SubListaTypeEnum.Dormir {
-            image = UIImage(named: dormirImageArray[indexPath.section])
-            (cell as! SubListaCellTableViewCell).label.text = dormirTitleArray[indexPath.section]
-        }
+//        else if subListaType == SubListaTypeEnum.Dormir {
+//            image = UIImage(named: dormirImageArray[indexPath.section])
+//            (cell as! SubListaCellTableViewCell).label.text = dormirTitleArray[indexPath.section]
+//        }
         else if subListaType == SubListaTypeEnum.Estudo {
             image = UIImage(named: estudoImageArray[indexPath.section])
             (cell as! SubListaCellTableViewCell).label.text = estudoTitleArray[indexPath.section]
         }
-        else if subListaType == SubListaTypeEnum.Frio {
-            image = UIImage(named: frioImageArray[indexPath.section])
-            (cell as! SubListaCellTableViewCell).label.text = frioTitleArray[indexPath.section]
+        else if subListaType == SubListaTypeEnum.Tomada {
+            image = UIImage(named: tomadaImageArray[indexPath.section])
+            (cell as! SubListaCellTableViewCell).label.text = tomadaitleArray[indexPath.section]
         }
         else if subListaType == SubListaTypeEnum.Vila {
             image = UIImage(named: vilaImageArray[indexPath.section])
@@ -121,6 +125,10 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
         else if subListaType == SubListaTypeEnum.NuncaVi {
             image = UIImage(named: nuncaViImageArray[indexPath.section])
             (cell as! SubListaCellTableViewCell).label.text = nuncaViTitleArray[indexPath.section]
+        }
+        else if subListaType == .Xerox {
+            image = UIImage(named: xeroxImageArray[indexPath.section])
+            (cell as! SubListaCellTableViewCell).label.text = xeroxTitleArray[indexPath.section]
         }
         
         (cell as! SubListaCellTableViewCell).imageCell.image = image
@@ -138,7 +146,7 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 250
+        return 220//250
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -148,6 +156,21 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if subListaType == SubListaTypeEnum.Vila{
             return vilaImageArray.count
+        }
+        else if subListaType == .Tomada {
+            return tomadaImageArray.count
+        }
+        else if subListaType == .Xerox {
+            return xeroxImageArray.count
+        }
+        else if subListaType == .Banheiro {
+            return banheirosImageArray.count
+        }
+        else if subListaType == .Estudo {
+            return estudoImageArray.count
+        }
+        else if subListaType == .NuncaVi {
+            return nuncaViImageArray.count
         }
         return 6
     }

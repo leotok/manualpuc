@@ -14,7 +14,7 @@ class EsportesViewController: UIViewController,SWRevealViewControllerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
-        self.navigationController?.navigationBar.topItem?.title = "Esporte"
+        self.navigationController?.navigationBar.topItem?.title = "#PUCFitness"
     }
     
     override func viewDidLoad() {

@@ -16,7 +16,7 @@ class UniversidadeViewController: UIViewController,SWRevealViewControllerDelegat
     
     override func viewWillAppear(animated: Bool) {
         
-        self.navigationController?.navigationBar.topItem?.title = "Universidade"
+        self.navigationController?.navigationBar.topItem?.title = "#aFacul"
     }
     
     override func viewDidLoad() {

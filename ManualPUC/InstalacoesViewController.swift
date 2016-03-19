@@ -56,7 +56,7 @@ class InstalacoesViewController: UIViewController {
         let label21 = UILabel()
         label21.frame.size = CGSizeMake( self.view.frame.width - 20, self.view.frame.height / 2.5 )
         label21.center = CGPointMake( self.view.frame.width / 2 , self.view.frame.height / 4.6 )
-        label21.text = "- Agência do Banco Itaú-Edifício Frings, próximo as escadas que dao acesso ao Bandejão e ao Primeiro andar\n - Caixa eletrônico do Banco do Brasil-Edificio Frings, ao lado dos elevadores e Edifício Leme proximo ao Bar das Freiras\n - Caixa eletrônico Itaú-Edifício Leme, em frente da sala da equipe Riobotz\n - Caixa eletrônico Itaú-Edifício Leme, em frente da sala da equipe Riobotz"
+        label21.text = "- Agência do Banco Itaú-Edifício Frings, próximo as escadas que dao acesso ao Bandejão e ao Primeiro andar\n - Caixa eletrônico do Banco do Brasil-Edificio Frings, ao lado dos elevadores e Edifício Leme proximo ao Bar das Freiras\n - Caixa eletrônico Itaú-Edifício Leme, em frente da sala da equipe Riobotz"
         label21.textAlignment = NSTextAlignment.Left
         label21.font = UIFont(name: "palitoon", size: view.frame.height / 40)
         label21.numberOfLines = -1

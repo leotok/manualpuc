@@ -14,7 +14,7 @@ class ComesBebesViewController: UIViewController,SWRevealViewControllerDelegate 
     
     override func viewWillAppear(animated: Bool) {
         
-        self.navigationController?.navigationBar.topItem?.title = "Comes e Bebes"
+        self.navigationController?.navigationBar.topItem?.title = "#toComFome"
     }
     
     override func viewDidLoad() {

@@ -16,8 +16,8 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        self.view.backgroundColor = UIColor.white
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
         
         
@@ -30,20 +30,20 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
         
         // TableView
         
-        tableView = UITableView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height - (navigationController?.navigationBar.frame.height)!), style: UITableViewStyle.Plain)
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - (navigationController?.navigationBar.frame.height)!), style: UITableViewStyle.plain)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.userInteractionEnabled = true
+        tableView.isUserInteractionEnabled = true
         tableView.alwaysBounceVertical = true
-        tableView.scrollEnabled = true
+        tableView.isScrollEnabled = true
         
-        tableView.backgroundColor = UIColor.clearColor()
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.backgroundColor = UIColor.clear
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
 
         if self.revealViewController() != nil{
             
             sideMenuButton.target = self.revealViewController()
-            sideMenuButton.action = Selector("revealToggle:")
+            sideMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
 
 
         }
@@ -52,24 +52,24 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
         
     }
 
-    private func setupNavigationController(){
+    fileprivate func setupNavigationController(){
         
         self.navigationController?.navigationBar.backgroundColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
         self.navigationController?.navigationBar.barTintColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
       
         let revealController :SWRevealViewController = self.revealViewController()
         self.view.addGestureRecognizer(revealController.panGestureRecognizer())
         
         self.navigationController?.navigationBar.topItem?.title = "#topDicas"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         
         self.view.addGestureRecognizer(revealController.panGestureRecognizer())
         
-        sideMenuButton.tintColor = UIColor.whiteColor()
+        sideMenuButton.tintColor = UIColor.white
         sideMenuButton.image = UIImage(named: "MenuButton")
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
@@ -78,19 +78,19 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
         if self.revealViewController() != nil{
             
             sideMenuButton.target = self.revealViewController()
-            sideMenuButton.action = Selector("revealToggle:")
+            sideMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             revealController.viewDisabled = tableView
         }
     }
 
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "cell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         
         if cell == nil {
-            cell = ListaCell(style: .Default, reuseIdentifier: cellIdentifier)
+            cell = ListaCell(style: .default, reuseIdentifier: cellIdentifier)
         }
         
         var image: UIImage!
@@ -129,7 +129,7 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
             image = nil
         }
         let cellBackground = UIImageView(image: image)
-        cellBackground.frame.size = CGSizeMake(view.frame.width, view.frame.height / 3)
+        cellBackground.frame.size = CGSize(width: view.frame.width, height: view.frame.height / 3)
         cellBackground.center = (cell?.center)!
         cell?.backgroundView = cellBackground
        
@@ -139,8 +139,8 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
 
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         
         let subLista = SubListaViewController()
         
@@ -170,19 +170,19 @@ class ListaViewController: UIViewController,SWRevealViewControllerDelegate, UITa
     }
 
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 6
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 2
     }
 

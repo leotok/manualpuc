@@ -49,8 +49,8 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        self.view.backgroundColor = UIColor.white
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
          
         
         
@@ -63,41 +63,41 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
         
         // TableView
         
-        subTableView = UITableView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height - 18 - (navigationController?.navigationBar.frame.height)!), style: UITableViewStyle.Plain)
+        subTableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - 18 - (navigationController?.navigationBar.frame.height)!), style: UITableViewStyle.plain)
         subTableView.dataSource = self
         subTableView.delegate = self
-        subTableView.userInteractionEnabled = true
+        subTableView.isUserInteractionEnabled = true
         subTableView.alwaysBounceVertical = true
-        subTableView.scrollEnabled = true
+        subTableView.isScrollEnabled = true
         
-        subTableView.backgroundColor = UIColor.clearColor()
-        subTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        subTableView.backgroundColor = UIColor.clear
+        subTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         self.view.addSubview(subTableView)
         
     }
     
-    private func setupNavigationController(){
+    fileprivate func setupNavigationController(){
         
         self.navigationController?.navigationBar.backgroundColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
         self.navigationController?.navigationBar.barTintColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         self.navigationItem.title = "\(subListaType.rawValue)"
-        self.navigationController?.navigationBar.tintColor = .whiteColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "cell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         
         if cell == nil {
-            cell = SubListaCellTableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
+            cell = SubListaCellTableViewCell(style: .default, reuseIdentifier: cellIdentifier)
         }
         
         var image: UIImage!
@@ -140,20 +140,20 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220//250
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         if subListaType == SubListaTypeEnum.Vila{
             return vilaImageArray.count
         }
@@ -175,7 +175,7 @@ class SubListaViewController: UIViewController, UITableViewDelegate, UITableView
         return 6
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 2
     }
     

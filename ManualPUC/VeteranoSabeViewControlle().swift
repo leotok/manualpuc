@@ -12,7 +12,7 @@ class VeteranoSabeViewController: UIViewController,SWRevealViewControllerDelegat
     
     var sideMenuButton = UIBarButtonItem()
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         self.navigationController?.navigationBar.topItem?.title = "#nemVeteranoSabe"
     }
@@ -20,8 +20,8 @@ class VeteranoSabeViewController: UIViewController,SWRevealViewControllerDelegat
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        self.view.backgroundColor = UIColor.white
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
         let background = UIImageView(image: UIImage(named: "paperBackground"))
         background.frame = view.frame
@@ -35,30 +35,30 @@ class VeteranoSabeViewController: UIViewController,SWRevealViewControllerDelegat
         if self.revealViewController() != nil{
             
             sideMenuButton.target = self.revealViewController()
-            sideMenuButton.action = Selector("revealToggle:")
+            sideMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             
             
         }
     }
     
-    private func setupNavigationController(){
+    fileprivate func setupNavigationController(){
         
         self.navigationController?.navigationBar.backgroundColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
         self.navigationController?.navigationBar.barTintColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.isTranslucent = false
         //        self.navigationController?.navigationBar.topItem?.titleView = tripify
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         
         let revealController :SWRevealViewController = self.revealViewController()
         self.view.addGestureRecognizer(revealController.panGestureRecognizer())
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         
         self.view.addGestureRecognizer(revealController.panGestureRecognizer())
         
-        sideMenuButton.tintColor = UIColor.whiteColor()
+        sideMenuButton.tintColor = UIColor.white
         sideMenuButton.image = UIImage(named: "MenuButton")
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
@@ -67,58 +67,58 @@ class VeteranoSabeViewController: UIViewController,SWRevealViewControllerDelegat
         if self.revealViewController() != nil{
             
             sideMenuButton.target = self.revealViewController()
-            sideMenuButton.action = Selector("revealToggle:")
+            sideMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         }
     }
     
     func addLayout() {
         
         let button1 = UIButton()
-        button1.frame.size = CGSizeMake( self.view.frame.width , self.view.frame.height / 2.92 )
-        button1.center = CGPointMake( self.view.frame.width / 2.000 , self.view.frame.height / 4 )
-        button1.addTarget(self, action: Selector("curiosidadeAction"), forControlEvents: UIControlEvents.TouchUpInside)
-        button1.setImage(UIImage(named: "ginasio"), forState: .Normal)
+        button1.frame.size = CGSize( width: self.view.frame.width , height: self.view.frame.height / 2.92 )
+        button1.center = CGPoint( x: self.view.frame.width / 2.000 , y: self.view.frame.height / 4 )
+        button1.addTarget(self, action: #selector(VeteranoSabeViewController.curiosidadeAction), for: UIControlEvents.touchUpInside)
+        button1.setImage(UIImage(named: "ginasio"), for: UIControlState())
         button1.clipsToBounds = true
         
-        let visualEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let visualEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let effect = UIVisualEffectView(effect: visualEffect)
         effect.frame = button1.frame
-        effect.userInteractionEnabled = false
+        effect.isUserInteractionEnabled = false
         
         let label1 = UILabel()
-        label1.frame.size = CGSizeMake( self.view.frame.width , self.view.frame.height / 10 )
+        label1.frame.size = CGSize( width: self.view.frame.width , height: self.view.frame.height / 10 )
         label1.center = button1.center
         label1.text = "Curiosidades e Mitos"
-        label1.textAlignment = NSTextAlignment.Center
+        label1.textAlignment = NSTextAlignment.center
         label1.font = UIFont(name: "HelveticaNeue-Thin", size: view.frame.height / 16.675)
         label1.numberOfLines = -1
-        label1.textColor = UIColor.whiteColor()
+        label1.textColor = UIColor.white
 
         self.view.addSubview(button1)
         self.view.addSubview(effect)
         self.view.addSubview(label1)
         
         let button2 = UIButton()
-        button2.frame.size = CGSizeMake( self.view.frame.width , self.view.frame.height / 2.92 )
-        button2.center = CGPointMake( self.view.frame.width / 2.0 , self.view.frame.height / 1.5 )
-        button2.addTarget(self, action: Selector("utilidadeAction"), forControlEvents: UIControlEvents.TouchUpInside)
-        button2.setImage(UIImage(named: "academia"), forState: .Normal)
+        button2.frame.size = CGSize( width: self.view.frame.width , height: self.view.frame.height / 2.92 )
+        button2.center = CGPoint( x: self.view.frame.width / 2.0 , y: self.view.frame.height / 1.5 )
+        button2.addTarget(self, action: #selector(VeteranoSabeViewController.utilidadeAction), for: UIControlEvents.touchUpInside)
+        button2.setImage(UIImage(named: "academia"), for: UIControlState())
         self.view.addSubview(button2)
         
-        let visualEffect2 = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let visualEffect2 = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let effect2 = UIVisualEffectView(effect: visualEffect2)
         effect2.frame = button2.frame
-        effect2.userInteractionEnabled = false
+        effect2.isUserInteractionEnabled = false
         self.view.addSubview(effect2)
         
         let label2 = UILabel()
-        label2.frame.size = CGSizeMake( self.view.frame.width , self.view.frame.height / 10 )
+        label2.frame.size = CGSize( width: self.view.frame.width , height: self.view.frame.height / 10 )
         label2.center = button2.center
         label2.text = "Utilidade Particular"
-        label2.textAlignment = NSTextAlignment.Center
+        label2.textAlignment = NSTextAlignment.center
         label2.font = UIFont(name: "HelveticaNeue-Thin", size: view.frame.height / 16.675)
         label2.numberOfLines = -1
-        label2.textColor = UIColor.whiteColor()
+        label2.textColor = UIColor.white
         self.view.addSubview(label2)
         
     }
